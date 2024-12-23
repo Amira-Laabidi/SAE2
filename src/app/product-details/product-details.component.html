@@ -1,0 +1,26 @@
+<div class="product-details-container">
+  <h1 class="product-id">Product ID: {{ id }}</h1>
+
+  <div class="product-table-container">
+    <table class="table table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Image</th>
+          <th>Id</th>
+          <th>Product Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productItem" class="product-row">
+          <td>
+            <img [src]="p.img" alt="{{ p.pName }}" class="product-image" />
+          </td>
+          <td>{{ p.id }}</td>
+          <td>{{ p.pName }}</td>
+          <td>{{ p.price | currency:'USD':true }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

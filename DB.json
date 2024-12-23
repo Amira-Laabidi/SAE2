@@ -1,0 +1,31 @@
+{
+  "residences": [
+    {
+      "id": "2",
+      "name": "Amira",
+      "address": "laabidi",
+      "image": "../../assets/images/R2.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": "1",
+      "name": "gitjohotijho",
+      "address": "ezzahra",
+      "image": "../../assets/images/R3.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": "1",
+      "name": "angular",
+      "address": "mahdia",
+      "image": "../../assets/images/R3.jpg",
+      "status": "Disponible"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "pName": "souris"
+    }
+  ]
+}

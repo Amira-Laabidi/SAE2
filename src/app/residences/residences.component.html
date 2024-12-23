@@ -1,0 +1,88 @@
+<div class="residences-container">
+  <h1>Residences</h1>
+  
+  <div class="search-bar">
+    <input 
+      type="text" 
+      class="form-control search-input" 
+      placeholder="Rechercher par adresse" 
+      [(ngModel)]="search_item">
+    <a class="btn btn-primary add-residence" routerLink="/addresidence">
+      Ajouter une nouvelle résidence
+    </a>
+  </div>
+
+  <table class="table table-hover residences-table">
+    <thead class="table-dark">
+      <tr>
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filtreByAddress()" class="residence-row">
+        <td>
+          <img 
+            [src]="item.image" 
+            [alt]="item.name" 
+            class="residence-image">
+        </td>
+        <td>{{ item.name }}</td>
+        <td>
+          <span 
+            class="status"
+            [ngClass]="{
+              'status-available': item.status === 'Disponible',
+              'status-sold': item.status === 'Vendu',
+              'status-construction': item.status === 'En Construction'
+            }">
+            {{ item.status }}
+          </span>
+        </td>
+        <td class="action-buttons">
+          <button 
+            type="button" 
+            class="btn btn-outline-primary" 
+            (click)="showLocation(item.address)">
+            Localisation
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-outline-danger" 
+            (click)="addFavorite(item)">
+            J’aime
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-outline-primary" 
+            [routerLink]="['/residences', item.id]">
+            Détails
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-outline-danger" 
+            (click)="delete(item.id)">
+            Supprimer
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-outline-primary" 
+            [routerLink]="['/update', item.id]">
+            Modifier
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="favorites-section">
+    <h3>Favoris</h3>
+    <ul class="favorites-list">
+      <li *ngFor="let favorite of favoris">
+        {{ favorite.id }} - {{ favorite.name }}
+      </li>
+    </ul>
+  </div>
+</div>
